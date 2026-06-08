@@ -1,26 +1,207 @@
 @import "tailwindcss";
+@config "../tailwind.config.ts";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #0b0e14;
+  --foreground: #ffffff;
+  --accent: #ff6b00;
+  --ice: #38bdf8;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-void: #0b0e14;
+  --color-void-deep: #060810;
+  --color-void-surface: #111620;
+  --color-accent: #ff6b00;
+  --color-accent-muted: #ff6b0033;
+  --color-accent-glow: #ff6b0018;
+  --color-ice: #38bdf8;
+  --color-ice-muted: #38bdf833;
+  --color-border-subtle: rgba(255, 255, 255, 0.06);
+  --color-border: rgba(255, 255, 255, 0.1);
+  --color-border-strong: rgba(255, 255, 255, 0.16);
+  --color-muted: #94a3b8;
+  --color-muted-dim: #64748b;
+  --color-muted-faint: #475569;
+  --font-sans: var(--font-inter);
+  --font-mono: var(--font-jetbrains-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
+  background-color: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-jetbrains-mono), ui-monospace, monospace;
+}
+
+.bg-institutional {
+  background-color: #0b0e14;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+    radial-gradient(ellipse 80% 50% at 50% -20%, rgba(255, 107, 0, 0.04), transparent);
+  background-size: 64px 64px, 64px 64px, 100% 100%;
+}
+
+.mono-label {
+  font-family: var(--font-jetbrains-mono), ui-monospace, monospace;
+  font-size: 0.6875rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+/* Page headers — largest typography on the site */
+.page-tag-badge {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.04);
+  padding: 0.5rem 1rem;
+  font-family: var(--font-jetbrains-mono), ui-monospace, monospace;
+  font-size: 0.875rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+@media (min-width: 768px) {
+  .page-tag-badge {
+    padding: 0.625rem 1.125rem;
+    font-size: 1rem;
+    letter-spacing: 0.1em;
+  }
+}
+
+.page-brand {
+  font-family: var(--font-inter), system-ui, sans-serif;
+  font-size: 1.875rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: var(--accent);
+  line-height: 1;
+}
+
+@media (min-width: 768px) {
+  .page-brand {
+    font-size: 2.5rem;
+  }
+}
+
+.page-status {
+  font-family: var(--font-jetbrains-mono), ui-monospace, monospace;
+  font-size: 0.875rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+}
+
+@media (min-width: 768px) {
+  .page-status {
+    font-size: 1.0625rem;
+  }
+}
+
+.page-meta-title {
+  font-family: var(--font-inter), system-ui, sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  color: rgba(255, 255, 255, 0.92);
+  line-height: 1.15;
+}
+
+@media (min-width: 768px) {
+  .page-meta-title {
+    font-size: 2rem;
+  }
+}
+
+.page-meta-subtitle {
+  font-family: var(--font-inter), system-ui, sans-serif;
+  font-size: 1.25rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.2;
+}
+
+@media (min-width: 768px) {
+  .page-meta-subtitle {
+    font-size: 1.625rem;
+  }
+}
+
+/* Section titles — below page headers */
+.section-title {
+  font-family: var(--font-inter), system-ui, sans-serif;
+  font-size: 1.125rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: rgba(255, 255, 255, 0.78);
+  line-height: 1.25;
+}
+
+@media (min-width: 768px) {
+  .section-title {
+    font-size: 1.3125rem;
+  }
+}
+
+/* Hero headline — secondary, smaller than page headers */
+.hero-headline {
+  font-family: var(--font-inter), system-ui, sans-serif;
+  font-size: 1.625rem;
+  font-weight: 800;
+  line-height: 1.08;
+  letter-spacing: -0.035em;
+}
+
+@media (min-width: 640px) {
+  .hero-headline {
+    font-size: 1.875rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .hero-headline {
+    font-size: 2.125rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .hero-headline {
+    font-size: 2.375rem;
+  }
+}
+
+.hero-ambient-bg {
+  background:
+    radial-gradient(
+      ellipse 55% 45% at 82% 38%,
+      rgba(255, 107, 0, 0.07),
+      transparent 68%
+    ),
+    radial-gradient(
+      ellipse 40% 35% at 70% 62%,
+      rgba(56, 189, 248, 0.05),
+      transparent 70%
+    );
+  animation: hero-ambient-drift 18s ease-in-out infinite alternate;
+}
+
+@keyframes hero-ambient-drift {
+  0% {
+    opacity: 0.85;
+    transform: scale(1) translate(0, 0);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1.04) translate(-1.5%, 1%);
+  }
 }
