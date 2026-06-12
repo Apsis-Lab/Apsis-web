@@ -32,6 +32,7 @@ export function TechnologyDetails() {
           {technologies.items.map((tech, index) => {
             const Icon = tech.icon;
             const num = String(index + 1).padStart(2, "0");
+            const [capability, outcome] = tech.paragraphs;
 
             return (
               <motion.article
@@ -44,7 +45,7 @@ export function TechnologyDetails() {
                 variants={fadeUp}
                 className="scroll-mt-24 bg-void-surface"
               >
-                <div className="grid grid-cols-1 gap-8 border border-white/[0.06] bg-white/[0.02] p-6 backdrop-blur-sm md:grid-cols-[220px_1fr] md:p-10">
+                <div className="grid grid-cols-1 gap-6 border border-white/[0.06] bg-white/[0.02] p-6 backdrop-blur-sm md:grid-cols-[200px_1fr] md:gap-8 md:p-8">
                   <div className="space-y-4">
                     <div className="flex items-center gap-3">
                       <span className="flex h-8 w-8 items-center justify-center border border-accent/40 bg-accent/15 font-sans text-sm font-bold text-accent">
@@ -64,21 +65,19 @@ export function TechnologyDetails() {
                     />
                   </div>
 
-                  <div className="space-y-6">
-                    <h3 className="font-sans text-xl font-bold tracking-tight text-white md:text-2xl">
+                  <div className="space-y-4">
+                    <h3 className="font-sans text-lg font-bold tracking-tight text-white md:text-xl">
                       {tech.title}
                     </h3>
 
-                    <div className="space-y-4">
-                      {tech.paragraphs.map((paragraph, pIndex) => (
-                        <p
-                          key={pIndex}
-                          className="max-w-3xl font-mono text-sm leading-relaxed text-muted md:text-[0.9375rem]"
-                        >
-                          {paragraph}
-                        </p>
-                      ))}
-                    </div>
+                    <p className="max-w-2xl font-mono text-sm leading-relaxed text-white/80 md:text-[0.9375rem]">
+                      {capability}
+                    </p>
+                    {outcome && (
+                      <p className="max-w-2xl border-l border-white/10 pl-4 font-mono text-sm leading-relaxed text-muted md:text-[0.9375rem]">
+                        {outcome}
+                      </p>
+                    )}
                   </div>
                 </div>
               </motion.article>

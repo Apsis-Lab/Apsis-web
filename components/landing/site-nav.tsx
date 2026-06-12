@@ -8,8 +8,10 @@ export function SiteNav() {
   const { t } = useLanguage();
 
   const navLinks = [
+    { href: "#engine", label: t.nav.engine },
     { href: "#technologies", label: t.nav.technologies },
-    { href: "#paradigm", label: t.nav.paradigm },
+    { href: "#moat", label: t.nav.moat },
+    { href: "#operations", label: t.nav.operations },
     { href: "#contact", label: t.nav.contact },
   ];
 
@@ -23,12 +25,12 @@ export function SiteNav() {
           {BRAND_NAME}
         </a>
 
-        <div className="hidden items-center gap-2 md:flex">
+        <div className="hidden items-center gap-1 lg:flex">
           {navLinks.map((link) => (
             <a
               key={link.href}
               href={link.href}
-              className="px-3 py-2 font-mono text-sm tracking-wide text-muted transition-colors hover:text-accent md:text-base"
+              className="px-2.5 py-2 font-mono text-sm tracking-wide text-muted transition-colors hover:text-accent xl:px-3 xl:text-base"
             >
               {link.label}
             </a>

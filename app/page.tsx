@@ -1,5 +1,9 @@
+import { EngineSection } from "@/components/landing/engine-section";
 import { HeroSection } from "@/components/landing/hero-section";
-import { ParadigmSection } from "@/components/landing/paradigm-section";
+import { HypothesisSection } from "@/components/landing/hypothesis-section";
+import { MoatSection } from "@/components/landing/moat-section";
+import { NotSection } from "@/components/landing/not-section";
+import { OperationsSection } from "@/components/landing/operations-section";
 import { SiteFooter } from "@/components/landing/site-footer";
 import { SiteNav } from "@/components/landing/site-nav";
 import { TechnologiesSection } from "@/components/landing/technologies-section";
@@ -12,9 +16,13 @@ export default function Home() {
       <main className="bg-institutional min-h-screen">
         <SiteNav />
         <HeroSection />
+        <HypothesisSection />
+        <EngineSection />
         <TechnologiesSection />
         <TechnologyDetails />
-        <ParadigmSection />
+        <MoatSection />
+        <OperationsSection />
+        <NotSection />
         <SiteFooter />
       </main>
     </LanguageProvider>

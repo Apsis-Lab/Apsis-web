@@ -15,9 +15,9 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "VibeSec — Autonomous Exploit Generation",
+  title: "VibeSec — Autonomous Adversarial Verification for EVM Protocols",
   description:
-    "State-aware, neuro-symbolic security infrastructure. Deterministic adversarial verification for machine-speed threats.",
+    "Hybrid neuro-symbolic Automated Exploit Generation. Every finding survives physical EVM execution — execution truth is the only currency.",
 };
 
 export default function RootLayout({
