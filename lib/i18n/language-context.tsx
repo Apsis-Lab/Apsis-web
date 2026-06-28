@@ -8,16 +8,18 @@ import {
   useMemo,
   useState,
 } from "react";
-import { content, type Locale } from "@/lib/landing-content";
+import { apsisContent, type Locale } from "@/lib/apsis-content";
 
 type LanguageContextValue = {
   locale: Locale;
   setLocale: (locale: Locale) => void;
   toggleLocale: () => void;
-  t: (typeof content)["en"];
+  t: (typeof apsisContent)["en"];
 };
 
 const LanguageContext = createContext<LanguageContextValue | null>(null);
+
+const STORAGE_KEY = "apsis-locale";
 
 export function LanguageProvider({ children }: { children: React.ReactNode }) {
   const [locale, setLocaleState] = useState<Locale>("en");
@@ -25,7 +27,7 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
   const setLocale = useCallback((next: Locale) => {
     setLocaleState(next);
     if (typeof window !== "undefined") {
-      window.localStorage.setItem("vibesec-locale", next);
+      window.localStorage.setItem(STORAGE_KEY, next);
       document.documentElement.lang = next === "zh" ? "zh-CN" : "en";
     }
   }, []);
@@ -35,7 +37,7 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
   }, [locale, setLocale]);
 
   useEffect(() => {
-    const stored = window.localStorage.getItem("vibesec-locale");
+    const stored = window.localStorage.getItem(STORAGE_KEY);
     if (stored === "en" || stored === "zh") {
       setLocaleState(stored);
       document.documentElement.lang = stored === "zh" ? "zh-CN" : "en";
@@ -47,7 +49,7 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
       locale,
       setLocale,
       toggleLocale,
-      t: content[locale],
+      t: apsisContent[locale],
     }),
     [locale, setLocale, toggleLocale],
   );

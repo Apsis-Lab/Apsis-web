@@ -6,27 +6,27 @@ export function LanguageToggle() {
   const { locale, setLocale } = useLanguage();
 
   return (
-    <div className="flex items-center border border-white/10 bg-white/[0.02]">
+    <div className="flex items-center border border-border bg-void-elevated">
       <button
         type="button"
         onClick={() => setLocale("en")}
-        className={`px-3 py-2 font-mono text-sm uppercase tracking-wider transition-colors md:px-4 md:text-base ${
+        className={`px-2.5 py-1.5 font-mono text-[11px] uppercase tracking-wider transition-colors sm:px-3 ${
           locale === "en"
-            ? "bg-accent/10 text-accent"
-            : "text-muted-faint hover:text-muted"
+            ? "bg-neon-green/10 text-neon-green"
+            : "text-muted-faint hover:text-muted-dim"
         }`}
         aria-pressed={locale === "en"}
       >
         EN
       </button>
-      <span className="h-4 w-px bg-white/10" />
+      <span className="h-4 w-px bg-border" />
       <button
         type="button"
         onClick={() => setLocale("zh")}
-        className={`px-3 py-2 font-mono text-sm tracking-wider transition-colors md:px-4 md:text-base ${
+        className={`px-2.5 py-1.5 font-mono text-[11px] tracking-wider transition-colors sm:px-3 ${
           locale === "zh"
-            ? "bg-accent/10 text-accent"
-            : "text-muted-faint hover:text-muted"
+            ? "bg-neon-green/10 text-neon-green"
+            : "text-muted-faint hover:text-muted-dim"
         }`}
         aria-pressed={locale === "zh"}
       >

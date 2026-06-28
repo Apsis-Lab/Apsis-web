@@ -1,23 +1,24 @@
 import type { Metadata } from "next";
 import { Inter, JetBrains_Mono } from "next/font/google";
+import { LanguageProvider } from "@/lib/i18n/language-context";
 import "./globals.css";
 
 const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800", "900"],
+  weight: ["400", "500", "600", "700"],
 });
 
 const jetbrainsMono = JetBrains_Mono({
   variable: "--font-jetbrains-mono",
   subsets: ["latin"],
-  weight: ["400", "500"],
+  weight: ["400", "500", "600"],
 });
 
 export const metadata: Metadata = {
-  title: "VibeSec — Autonomous Adversarial Verification for EVM Protocols",
+  title: "Apsis Lab — Apsis Engine",
   description:
-    "Hybrid neuro-symbolic Automated Exploit Generation. Every finding survives physical EVM execution — execution truth is the only currency.",
+    "Smart contract security has entered the physical era. Apsis Engine bridges neuro-symbolic AI reasoning with deterministic Rust EVM execution.",
 };
 
 export default function RootLayout({
@@ -30,7 +31,9 @@ export default function RootLayout({
       lang="en"
       className={`${inter.variable} ${jetbrainsMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full bg-void text-white">{children}</body>
+      <body className="min-h-full bg-black text-zinc-100">
+        <LanguageProvider>{children}</LanguageProvider>
+      </body>
     </html>
   );
 }

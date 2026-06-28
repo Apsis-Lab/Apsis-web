@@ -5,28 +5,22 @@ const config: Config = {
     extend: {
       colors: {
         void: {
-          DEFAULT: "#0B0E14",
-          deep: "#060810",
-          surface: "#111620",
-        },
-        accent: {
-          DEFAULT: "#FF6B00",
-          muted: "#FF6B0033",
-          glow: "#FF6B0018",
-        },
-        ice: {
-          DEFAULT: "#38BDF8",
-          muted: "#38BDF833",
+          DEFAULT: "#000000",
+          surface: "#0a0a0a",
+          elevated: "#111111",
         },
         border: {
-          subtle: "rgba(255, 255, 255, 0.06)",
-          DEFAULT: "rgba(255, 255, 255, 0.10)",
-          strong: "rgba(255, 255, 255, 0.16)",
+          DEFAULT: "#27272a",
+          subtle: "#1f1f23",
+        },
+        neon: {
+          green: "#00ff41",
+          cyan: "#22d3ee",
         },
         muted: {
-          DEFAULT: "#94A3B8",
-          dim: "#64748B",
-          faint: "#475569",
+          DEFAULT: "#a1a1aa",
+          dim: "#71717a",
+          faint: "#52525b",
         },
       },
       fontFamily: {
@@ -34,15 +28,8 @@ const config: Config = {
         mono: ["var(--font-jetbrains-mono)", "ui-monospace", "monospace"],
       },
       boxShadow: {
-        "edge-accent": "0 0 0 1px rgba(255, 107, 0, 0.35), inset 0 0 0 1px rgba(255, 107, 0, 0.08)",
-        "edge-ice": "0 0 0 1px rgba(56, 189, 248, 0.25), inset 0 0 0 1px rgba(56, 189, 248, 0.06)",
-      },
-      backgroundImage: {
-        "grid-lines":
-          "linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px)",
-      },
-      backgroundSize: {
-        grid: "64px 64px",
+        "neon-green": "0 0 20px rgba(0, 255, 65, 0.15)",
+        "neon-cyan": "0 0 20px rgba(34, 211, 238, 0.12)",
       },
     },
   },

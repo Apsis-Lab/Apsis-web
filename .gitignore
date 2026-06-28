@@ -39,3 +39,7 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# internal docs — do not publish
+TECHNICAL_ARCHITECTURE_MANUAL.md
+landing_page.md
